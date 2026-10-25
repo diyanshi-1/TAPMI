@@ -1,0 +1,13 @@
+.git
+.pytest_cache
+__pycache__
+*.py[cod]
+*.db
+*.sqlite
+.env
+.env.*
+!/.env.compose.example
+frontend/node_modules
+frontend/dist
+backend/.pytest_cache
+backend/tests
