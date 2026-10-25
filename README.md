@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cultural Committee Volunteer Management and Event Resource Allocation System
 **Pilot Event:** Kala Fest  
 **Institution:** T. A. Pai Management Institute (TAPMI), Manipal  
@@ -190,3 +191,7 @@ The database comes pre-seeded with test accounts:
   ```
 - **Windows Application Control (AppLocker) DLL Blocking:**  
   The system uses pure-Python `pg8000` for PostgreSQL connectivity and pure-Python `pulp 2.9.0` with CBC solver, avoiding unsigned C/Rust DLL blocks in Windows user AppData directories.
+=======
+# TAPMI
+event management platform
+>>>>>>> 7b9501e0c3b986604f2f79c127bd63a1e7ed3627
