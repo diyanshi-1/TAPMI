@@ -1,4 +1,11 @@
-const API_BASE = '/api/v1';
+const configuredApiBase = import.meta.env.VITE_API_BASE_URL?.trim();
+const API_BASE = (configuredApiBase || '/api/v1').replace(/\/+$/, '');
+
+function unreachableApiError() {
+  return new Error(
+    `Cannot reach the Flask API at ${API_BASE}. Deploy the backend and set VITE_API_BASE_URL to its public API URL (ending in /api/v1).`
+  );
+}
 
 function getToken() {
   return localStorage.getItem('tapmi_token');
@@ -17,7 +24,12 @@ async function getAuthorizedResponse(endpoint) {
   const token = getToken();
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const response = await fetch(`${API_BASE}${endpoint}`, { headers });
+  let response;
+  try {
+    response = await fetch(`${API_BASE}${endpoint}`, { headers });
+  } catch {
+    throw unreachableApiError();
+  }
   if (!response.ok) {
     let data;
     try {
@@ -25,7 +37,10 @@ async function getAuthorizedResponse(endpoint) {
     } catch (err) {
       data = null;
     }
-    throw new Error(data?.error?.message || 'File download failed');
+    const fallbackMessage = data
+      ? 'File download failed'
+      : `The API at ${API_BASE} returned HTTP ${response.status}. Check the backend URL configured for this deployment.`;
+    throw new Error(data?.error?.message || fallbackMessage);
   }
 
   return response;
@@ -62,7 +77,12 @@ async function request(endpoint, options = {}) {
     config.body = JSON.stringify(options.body);
   }
 
-  const response = await fetch(url, config);
+  let response;
+  try {
+    response = await fetch(url, config);
+  } catch {
+    throw unreachableApiError();
+  }
 
   let data;
   try {
@@ -72,7 +92,10 @@ async function request(endpoint, options = {}) {
   }
 
   if (!response.ok) {
-    const errorMsg = data?.error?.message || data?.warning?.message || 'Server request failed';
+    const fallbackMessage = data
+      ? 'Server request failed'
+      : `The API at ${API_BASE} returned HTTP ${response.status}. Set VITE_API_BASE_URL to the deployed Flask API URL ending in /api/v1.`;
+    const errorMsg = data?.error?.message || data?.warning?.message || fallbackMessage;
     const errorObj = new Error(errorMsg);
     errorObj.status = response.status;
     errorObj.data = data;
@@ -140,6 +163,13 @@ export const api = {
   getReportChart: async (eventId) => (await getAuthorizedResponse(`/events/${eventId}/reports/chart`)).blob(),
   downloadRoster: (eventId, format = 'xlsx') => downloadFile(`/events/${eventId}/reports/roster?format=${encodeURIComponent(format)}`),
   getAuditLog: () => request('/audit-log'),
+
+  // Core Committee management and dashboards
+  getCoreCommitteeMembers: () => request('/core-committee/members'),
+  createCoreCommitteeMember: (payload) => request('/core-committee/members', { method: 'POST', body: payload }),
+  getEventDepartmentHeads: (eventId) => request(`/events/${eventId}/department-heads`),
+  saveEventDepartmentHeads: (eventId, assignments) => request(`/events/${eventId}/department-heads`, { method: 'PUT', body: { assignments } }),
+  getMyDepartmentAssignments: () => request('/me/department-assignments'),
 
   // Simulations
   runSimulation: (eventId, payload) => request(`/events/${eventId}/simulations`, { method: 'POST', body: payload })

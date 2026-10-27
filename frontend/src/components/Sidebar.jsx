@@ -1,16 +1,18 @@
 import React from 'react';
 import { 
-  LayoutDashboard, Calendar, Users, Award, 
-  ShieldCheck, LogOut, CheckSquare, Clock
+  LayoutDashboard, Calendar, Users, Award,
+  ShieldCheck, LogOut, CheckSquare, Clock, UserRoundCog
 } from 'lucide-react';
 
 export function Sidebar({ currentView, setView, user, onLogout }) {
   const isOrganizer = user?.role === 'convener' || user?.role === 'co_convener';
+  const isCoreCommittee = user?.role === 'core_committee';
 
   const organizerNav = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'events', label: 'Events & Staffing', icon: Calendar },
     { id: 'volunteers', label: 'Volunteers Roster', icon: Users },
+    { id: 'core-committee', label: 'Manage Core Committee', icon: UserRoundCog },
     { id: 'skills', label: 'Skills Catalog', icon: Award },
     { id: 'audit', label: 'Audit History', icon: ShieldCheck }
   ];
@@ -21,7 +23,11 @@ export function Sidebar({ currentView, setView, user, onLogout }) {
     { id: 'my-history', label: 'Assignment History', icon: Clock }
   ];
 
-  const navItems = isOrganizer ? organizerNav : volunteerNav;
+  const coreCommitteeNav = [
+    { id: 'core-dashboard', label: 'My Departments', icon: LayoutDashboard }
+  ];
+
+  const navItems = isOrganizer ? organizerNav : isCoreCommittee ? coreCommitteeNav : volunteerNav;
 
   return (
     <aside style={{

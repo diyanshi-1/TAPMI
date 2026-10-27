@@ -128,12 +128,16 @@ def test_manual_edit_skill_override_requires_reason(client):
         # Find active volunteer with NO technical skills
         non_tech_vol = fetch_one(conn, """
             SELECT vp.id FROM volunteer_profiles vp
-            WHERE vp.active_status = 1 AND vp.id NOT IN (
+            WHERE vp.active_status = 1
+              AND vp.id NOT IN (
+                SELECT volunteer_id FROM assignments WHERE allocation_version_id = %s
+              )
+              AND vp.id NOT IN (
                 SELECT vs.volunteer_id FROM volunteer_skills vs
                 JOIN skills s ON vs.skill_id = s.id
                 WHERE s.name = 'Technical Support'
             ) LIMIT 1
-        """)
+        """, (version_id,))
         vol_id = non_tech_vol["id"]
 
     # Attempt manual add without override flag -> should return warning / confirmation request

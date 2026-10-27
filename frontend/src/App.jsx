@@ -9,6 +9,14 @@ import { VolunteersPage } from './pages/VolunteersPage';
 import { SkillsPage } from './pages/SkillsPage';
 import { AuditLogPage } from './pages/AuditLogPage';
 import { VolunteerPortal } from './pages/VolunteerPortal';
+import { CoreCommitteeManagementPage } from './pages/CoreCommitteeManagementPage';
+import { CoreCommitteeDashboard } from './pages/CoreCommitteeDashboard';
+
+function getInitialView(role) {
+  if (role === 'volunteer') return 'my-assignments';
+  if (role === 'core_committee') return 'core-dashboard';
+  return 'dashboard';
+}
 
 export function App() {
   const [user, setUser] = useState(null);
@@ -21,11 +29,7 @@ export function App() {
       try {
         const res = await api.getMe();
         setUser(res.data);
-        if (res.data.role === 'volunteer') {
-          setCurrentView('my-assignments');
-        } else {
-          setCurrentView('dashboard');
-        }
+        setCurrentView(getInitialView(res.data.role));
       } catch (err) {
         setUser(null);
       } finally {
@@ -37,11 +41,7 @@ export function App() {
 
   function handleLoginSuccess(userData) {
     setUser(userData);
-    if (userData.role === 'volunteer') {
-      setCurrentView('my-assignments');
-    } else {
-      setCurrentView('dashboard');
-    }
+    setCurrentView(getInitialView(userData.role));
   }
 
   function handleLogout() {
@@ -73,6 +73,7 @@ export function App() {
   }
 
   const isOrganizer = user.role === 'convener' || user.role === 'co_convener';
+  const isCoreCommittee = user.role === 'core_committee';
 
   return (
     <div className="app-container">
@@ -94,7 +95,10 @@ export function App() {
           {isOrganizer && (
             <>
               {currentView === 'dashboard' && (
-                <OrganizerDashboard onSelectEvent={handleSelectEvent} />
+                <OrganizerDashboard
+                  onSelectEvent={handleSelectEvent}
+                  onManageCoreCommittee={() => setCurrentView('core-committee')}
+                />
               )}
               {currentView === 'events' && (
                 <EventsPage onSelectEvent={handleSelectEvent} />
@@ -108,11 +112,14 @@ export function App() {
               {currentView === 'volunteers' && <VolunteersPage />}
               {currentView === 'skills' && <SkillsPage />}
               {currentView === 'audit' && <AuditLogPage />}
+              {currentView === 'core-committee' && <CoreCommitteeManagementPage />}
             </>
           )}
 
+          {isCoreCommittee && currentView === 'core-dashboard' && <CoreCommitteeDashboard />}
+
           {/* Volunteer Views */}
-          {!isOrganizer && (
+          {user.role === 'volunteer' && (
             <VolunteerPortal activeTab={currentView} />
           )}
         </div>

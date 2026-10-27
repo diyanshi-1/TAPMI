@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     email TEXT NOT NULL UNIQUE,
     password_hash TEXT,
-    role TEXT NOT NULL CHECK (role IN ('convener', 'co_convener', 'volunteer')),
+    role TEXT NOT NULL CHECK (role IN ('convener', 'co_convener', 'volunteer', 'core_committee')),
     status TEXT NOT NULL DEFAULT 'pending_activation' CHECK (status IN ('pending_activation', 'active', 'locked', 'inactive')),
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL,

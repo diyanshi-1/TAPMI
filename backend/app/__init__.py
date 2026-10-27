@@ -26,6 +26,7 @@ def create_app(config_class=Config):
     from backend.app.routes.allocation_routes import allocation_bp
     from backend.app.routes.report_routes import report_bp
     from backend.app.routes.simulation_routes import simulation_bp
+    from backend.app.routes.core_committee_routes import core_committee_bp
 
     app.register_blueprint(health_bp, url_prefix="/api/v1")
     app.register_blueprint(auth_bp, url_prefix="/api/v1/auth")
@@ -35,6 +36,7 @@ def create_app(config_class=Config):
     app.register_blueprint(allocation_bp, url_prefix="/api/v1")
     app.register_blueprint(report_bp, url_prefix="/api/v1")
     app.register_blueprint(simulation_bp, url_prefix="/api/v1")
+    app.register_blueprint(core_committee_bp, url_prefix="/api/v1")
 
     # Serve React SPA when frontend/dist is present
     if frontend_dist.exists():

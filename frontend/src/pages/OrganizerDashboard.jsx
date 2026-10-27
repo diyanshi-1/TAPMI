@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { api } from '../api/client';
 import { MetricCard } from '../components/MetricCard';
 import { Badge } from '../components/Badge';
-import { Calendar, Users, AlertTriangle, CheckCircle2, ArrowRight, ChevronDown } from 'lucide-react';
+import { Calendar, Users, AlertTriangle, CheckCircle2, ArrowRight, ChevronDown, UserRoundCog } from 'lucide-react';
 
-export function OrganizerDashboard({ onSelectEvent }) {
+export function OrganizerDashboard({ onSelectEvent, onManageCoreCommittee }) {
   const [events, setEvents] = useState([]);
   const [selectedEventId, setSelectedEventId] = useState('');
   const [staffing, setStaffing] = useState(null);
@@ -111,13 +111,17 @@ export function OrganizerDashboard({ onSelectEvent }) {
   return (
     <div>
       {/* Header */}
-      <div style={{ marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+      <div style={{ marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap' }}>
         <div>
           <h1 className="h1">Organizer Dashboard</h1>
           <p className="text-muted" style={{ marginTop: '4px' }}>
             Committee staffing overview across upcoming events
           </p>
         </div>
+        <button type="button" className="btn btn-outline" onClick={onManageCoreCommittee}>
+          <UserRoundCog size={16} />
+          <span>Manage Core Committee</span>
+        </button>
       </div>
 
       {/* Metrics Row */}

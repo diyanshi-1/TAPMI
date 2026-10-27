@@ -117,7 +117,7 @@ export function CampusLogin({ onLoginSuccess }) {
             TAPMI Cultural Committee
           </h2>
           <p className="text-muted" style={{ fontSize: '13px' }}>
-            Volunteer Management & Resource Allocation
+            Convener · Co-convener · Volunteer · Core Committee
           </p>
         </div>
 
