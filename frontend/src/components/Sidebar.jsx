@@ -46,17 +46,18 @@ export function Sidebar({ currentView, setView, user, onLogout }) {
         flexDirection: 'column',
         gap: '4px'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{
-            width: '10px',
-            height: '10px',
-            backgroundColor: 'var(--color-primary)',
-            borderRadius: '2px'
-          }} />
-          <span style={{ fontWeight: 600, fontSize: '15px', color: 'var(--color-text)' }}>
-            TAPMI Cultural
-          </span>
-        </div>
+        <img
+          src="/assets/tapmi-logo.png"
+          alt="TAPMI — Manipal Academy of Higher Education"
+          style={{
+            display: 'block',
+            width: '100%',
+            maxWidth: '200px',
+            height: '50px',
+            objectFit: 'contain',
+            objectPosition: 'left center'
+          }}
+        />
         <div style={{ fontSize: '11.5px', color: 'var(--color-muted)' }}>
           Volunteer Allocation System
         </div>

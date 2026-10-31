@@ -1,0 +1,207 @@
+{
+  "site": {
+    "title": "TAPMI Bengaluru · Executive Education (Group 3 prototype)",
+    "purpose": "Working Group 3 (Business Marketing, Milestone 3) submission prototype",
+    "official_site_disclaimer": "This website is not an official TAPMI website. Programme descriptions are strategic proposals from the project.",
+    "institution": "TAPMI Bengaluru",
+    "parent_institution": "Manipal Academy of Higher Education (MAHE)",
+    "founded_year_stat": "1981",
+    "accreditation_stat": "AACSB · AMBA",
+    "executive_education_pathways": 3
+  },
+  "hero": {
+    "eyebrow": "TAPMI Bengaluru · Executive Education",
+    "heading": "Inspire your next capability leap",
+    "description": "Academically grounded, applied management learning for professionals and organisations in India’s technology and business hub.",
+    "supporting_line": "Learn with people who understand your work.",
+    "tagline": "#inspire future creators"
+  },
+  "about": {
+    "heading": "Four decades of management education, now in Bengaluru",
+    "body": "TAPMI Bengaluru is a constituent unit of Manipal Academy of Higher Education (MAHE), and extends the legacy of T. A. Pai Management Institute to Bengaluru. Our executive education offers open programmes for individuals and customised learning for organisations. We begin with your goals: understanding the business problem or career ambition first, then designing learning that can be applied at work.",
+    "pillars": [
+      {
+        "title": "Rigorous",
+        "description": "Depth and academic credibility"
+      },
+      {
+        "title": "Applied",
+        "description": "Cases, projects, workplace use"
+      },
+      {
+        "title": "Flexible",
+        "description": "Built around working lives"
+      },
+      {
+        "title": "Connected",
+        "description": "Bengaluru industry access"
+      }
+    ],
+    "quote": "From functional expert to business leader.",
+    "quote_context": "The idea behind our Executive MBA, and the spirit behind everything we teach."
+  },
+  "programmes": [
+    {
+      "id": "executive-mba",
+      "name": "Executive MBA",
+      "audience": "For individuals",
+      "summary": "For experienced professionals ready to take on broader business and leadership responsibilities.",
+      "highlights": [
+        "General management foundations",
+        "Peer learning with working professionals",
+        "Application to your current role"
+      ],
+      "detail_heading": "A rigorous, applied pathway for professionals who know their function and want to lead the business.",
+      "who_its_for": "Experienced professionals moving towards broader management roles, and organisations developing high-potential managers.",
+      "what_you_gain": "Broader business and leadership capability, confidence for the next role, and a peer network of working professionals.",
+      "format": "Designed to be compatible with work. Calendar, workload and assessment details are shared during counselling.",
+      "journey": "Functional expert → business leader",
+      "positioning": "Choose us when career progression and credibility matter most."
+    },
+    {
+      "id": "management-development-programmes",
+      "name": "Management Development Programmes",
+      "short_name": "MDP",
+      "audience": "For organisations",
+      "summary": "Customised programmes that turn a specific business challenge into organisational capability.",
+      "highlights": [
+        "Diagnostic-led design",
+        "Experiential, outcome-focused delivery",
+        "Review of workplace application"
+      ],
+      "detail_heading": "Don’t train around the problem. Build capability around it.",
+      "who_its_for": "Organisations with a clear capability gap, such as AI adoption, leadership transition, transformation or succession, and a sponsor who can define outcomes.",
+      "how_we_work": "Diagnose, co-design, deliver experientially, then evaluate outcomes with you.",
+      "format": "On campus, online or hybrid, shaped by your audience and objectives.",
+      "journey": "Business problem → organisational capability",
+      "positioning": "Choose us when relevance to real decisions matters most."
+    },
+    {
+      "id": "management-certifications",
+      "name": "Management Certifications",
+      "audience": "Individuals & teams",
+      "summary": "Focused, credible certifications that build skills you can use, not just a certificate to display.",
+      "highlights": [
+        "Specific, career-relevant skills",
+        "Assessment and applied projects",
+        "Scalable for workforce cohorts"
+      ],
+      "detail_heading": "Build a capability your workforce can use, not just a certificate they can display.",
+      "who_its_for": "Early-to-mid career professionals seeking a credible skill upgrade, and organisations upskilling teams at scale.",
+      "what_you_gain": "Skills demonstrated through assessment and applied work, backed by management-school rigour.",
+      "format": "Modular and targeted, without the commitment of a full degree.",
+      "journey": "Skill gap → demonstrated ability",
+      "positioning": "Choose us when you need proof of capability, not just content."
+    }
+  ],
+  "approach": {
+    "heading": "Evidence you can see before you commit",
+    "description": "We make learning easy to evaluate, with clear information at each step of your decision.",
+    "steps": [
+      {
+        "title": "Understand",
+        "description": "Your business goals, learning objectives and audience come first."
+      },
+      {
+        "title": "Diagnose & co-design",
+        "description": "We study the gap and shape the programme with you."
+      },
+      {
+        "title": "Learn by doing",
+        "description": "Experiential delivery, cases and applied projects."
+      },
+      {
+        "title": "Evaluate outcomes",
+        "description": "We review how learning is applied at work."
+      }
+    ]
+  },
+  "campus_life": {
+    "heading": "A welcoming learning community",
+    "description": "Executive education should feel like joining a community. Here is what to expect when you learn with us.",
+    "features": [
+      {
+        "title": "Peers who get it",
+        "description": "Learn alongside working professionals facing challenges like yours."
+      },
+      {
+        "title": "Bengaluru energy",
+        "description": "Set in a leading technology and business hub, close to industry."
+      },
+      {
+        "title": "Support at every step",
+        "description": "Counselling before you apply and guidance through your journey."
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "question": "How do I choose between the three pathways?",
+      "answer": "Choose the Executive MBA for a broader leadership transition, an MDP to solve an organisational challenge, and a certification for a specific skill."
+    },
+    {
+      "question": "Can my organisation sponsor me?",
+      "answer": "Yes. Organisations can sponsor participants. Tell us in the enquiry form and our team will discuss options."
+    },
+    {
+      "question": "Will the programme fit alongside work?",
+      "answer": "Our programmes are designed for working professionals. Calendar, workload and format details are shared during your conversation with the team."
+    },
+    {
+      "question": "Where can I find fees and dates?",
+      "answer": "Fees and schedules are confirmed per programme. Please enquire, and check the official TAPMI website for the latest information."
+    }
+  ],
+  "enquiry_form": {
+    "modes": [
+      "Individual",
+      "Organisation"
+    ],
+    "fields": [
+      "Name",
+      "Email",
+      "Current role",
+      "Years of experience",
+      "Programme of interest",
+      "Career objective"
+    ],
+    "experience_options": [
+      "3–5",
+      "6–9",
+      "10+"
+    ],
+    "programme_options": [
+      "Executive MBA",
+      "Management Development Programme",
+      "Management Certification"
+    ],
+    "behaviour_note": "The current HTML is a prototype: submitting the form only displays a confirmation message. No enquiry is sent or stored."
+  },
+  "navigation": [
+    {
+      "label": "About",
+      "target": "#about"
+    },
+    {
+      "label": "Programmes",
+      "target": "#programmes"
+    },
+    {
+      "label": "Our approach",
+      "target": "#approach"
+    },
+    {
+      "label": "Campus life",
+      "target": "#campus"
+    },
+    {
+      "label": "FAQs",
+      "target": "#faq"
+    },
+    {
+      "label": "Apply / Enquire",
+      "target": "#enquire"
+    }
+  ],
+  "assets_note": "The logo and two hero photographs are embedded directly in the HTML as base64 data URIs; this JSON does not duplicate those binary assets."
+}
